@@ -61,21 +61,21 @@ $bookings = $conn->query("
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while($b = $bookings->fetch_assoc()): ?>
-                                <tr>
-                                    <td><?php echo $b['booking_no']; ?></td>
-                                    <td><?php echo $b['service_name']; ?></td>
-                                    <td><?php echo date('d M Y', strtotime($b['booking_date'])); ?></td>
-                                    <td><?php echo date('h:i A', strtotime($b['booking_time'])); ?></td>
-                                    <td>RM <?php echo $b['price']; ?></td>
-                                    <td>
-                                        <span class="badge bg-<?php echo $b['status'] == 'confirmed' ? 'success' : ($b['status'] == 'pending' ? 'warning' : 'secondary'); ?>">
-                                            <?php echo ucfirst($b['status']); ?>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
+    <?php while($b = $bookings->fetch_assoc()): ?>
+    <tr>
+        <td><?php echo $b['booking_no']; ?></td>
+        <td><?php echo $b['service_name']; ?></td>
+        <td><?php echo date('d M Y', strtotime($b['booking_date'])); ?></td>
+        <td><?php echo date('h:i A', strtotime($b['booking_time'])); ?></td>
+        <td>RM <?php echo $b['price']; ?></td>
+        <td>
+            <span class="badge bg-<?php echo $b['status'] == 'confirmed' ? 'success' : ($b['status'] == 'pending' ? 'warning' : 'secondary'); ?>">
+                <?php echo ucfirst($b['status']); ?>
+            </span>
+        </td>
+    </tr>
+    <?php endwhile; ?>
+</tbody>
                         </table>
                     </div>
                 <?php endif; ?>
